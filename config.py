@@ -38,7 +38,7 @@ Config = dict(
 
     site_name = "Nanomine",
 
-    site_description = "Material Informatics for Polymer Nanocomposites",
+    site_description = "Materials Informatics for Polymer Nanocomposites",
 
     root_path = '/apps/whyis',
 
