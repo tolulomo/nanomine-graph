@@ -57,6 +57,11 @@ Config = dict(
 
     base_rate_probability = 0.8,
 
+    nanopub_archive = {
+        'depot.storage_path' : "/data/nanopublications",
+        'cache_max_age' : 3600*24*7,
+    },
+
     file_archive = {
         #'depot.backend': 'depot.io.gridfs.GridFSStorage',
         #'depot.mongouri': 'mongodb://localhost/whyis_files',
