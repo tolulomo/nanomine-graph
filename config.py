@@ -38,7 +38,7 @@ Config = dict(
 
     site_name = "Nanomine",
 
-    site_description = "Material Informatics for Polymer Nanocomposites",
+    site_description = "Materials Informatics for Polymer Nanocomposites",
 
     root_path = '/apps/whyis',
 
@@ -76,6 +76,11 @@ Config = dict(
     LOG_FORMAT = "%(asctime)s %(levelname)s\t: %(message)s", # used by logging.Formatter
 
     PERMANENT_SESSION_LIFETIME = timedelta(days=7),
+
+    #JS CONFIG - VUE JS
+    ##USE CUSTOM REST BACKUP & RESTORE
+    THIRD_PARTY_REST_BACKUP = True,
+    DISABLE_VUE_SPEED_DIAL = True,
 
     # EMAIL CONFIGURATION
     ## MAIL_SERVER = "",
@@ -136,12 +141,6 @@ Config = dict(
 
     default_language = 'en',
     namespaces = [
-        importer.LinkedData(
-            prefix = LOD_PREFIX+'/sio/',
-            url = 'http://semanticscience.org/resource/%s',
-            headers={'Accept':'text/turtle'},
-            format='turtle'
-        ),
         importer.LinkedData(
             prefix = LOD_PREFIX+'/dcat/',
             url = 'http://www.w3.org/ns/dcat#%s',
@@ -246,13 +245,14 @@ Config = dict(
         )
     ],
     inferencers = {
+	"SDDAgent": autonomic.SDDAgent(),
         "SETLr": autonomic.SETLr(),
         "SETLMaker": autonomic.SETLMaker(),
         "CacheUpdater" : autonomic.CacheUpdater(),
         "UnitConverter": converter.UnitConverter(),
 #        "HTML2Text" : nlp.HTML2Text(),
-#        "EntityExtractor" : nlp.EntityExtractor(),
-#        "EntityResolver" : nlp.EntityResolver(),
+        "EntityExtractor" : nlp.EntityExtractor(),
+        "EntityResolver" : nlp.EntityResolver(),
 #        "TF-IDF Calculator" : nlp.TFIDFCalculator(),
 #        "SKOS Crawler" : autonomic.Crawler(predicates=[skos.broader, skos.narrower, skos.related])
     },

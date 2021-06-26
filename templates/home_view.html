@@ -4,7 +4,7 @@
 {% block title %}{{config['site_name']}}{% endblock %}
 
 {% block pageheader %}
-<div class="jumbotron" style="color: #eee; background-color: #08233c; background: url('{{url_for('entity.view',name='')}}{{config['site_header_image']}}') no-repeat top center; background-size:cover">
+<div class="jumbotron" style="color: #eee; margin-bottom: 2px; position: relative; background-color: #08233c; background: url('{{url_for('entity.view',name='')}}{{config['site_header_image']}}') top center; background-size:cover;">
   <div class="container" style="text-shadow: 0px 0px 20px black;">
     <h1 class="">{{title()}}</h1>
     {% if 'site_description' in config %}
@@ -15,6 +15,14 @@
     {% endfor %}
     {% endif %}
   </div>
+  <a href="/wi/about?view=view&uri=http://semanticscience.org/resource/Chart" target="_blank"
+  style="position: absolute;
+  right: 1.5rem;
+  bottom: 1rem;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  background-color: #ffffff;
+  color: #08233c;">View Gallery of Custom Charts</a>
 </div>
 {% endblock %}
 
